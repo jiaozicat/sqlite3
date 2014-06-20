@@ -6,3 +6,5 @@ sqlite3 version 3.8.4.3
 
 CppSQLite - c++ wrapper for the SQLite 
 https://github.com/neosmart/CppSQLite
+
+lsqlite3 - 0.9.1
