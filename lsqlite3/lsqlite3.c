@@ -1846,6 +1846,15 @@ static int db_gc(lua_State *L) {
     return 0;
 }
 
+static int db_key(lua_State *L) {
+    sdb *db=lsqlite_checkdb(L,1);
+    const char *key=luaL_checkstring(L,2);
+    int num=luaL_checkint(L,3);
+
+    sqlite3_key(db->db, key, num);
+    return 0;
+}
+
 /*
 ** =======================================================
 ** General library functions
@@ -2025,6 +2034,8 @@ static const luaL_Reg dblib[] = {
 
     {"__tostring",          db_tostring             },
     {"__gc",                db_gc                   },
+
+    {"key",                 db_key                  },
 
     {NULL, NULL}
 };
